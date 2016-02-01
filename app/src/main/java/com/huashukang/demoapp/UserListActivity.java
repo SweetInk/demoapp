@@ -32,7 +32,7 @@ public class UserListActivity extends AppCompatActivity {
         adapter = new UserRecycleAdapter();
         adapter.setLists(lists);
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,true));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         recyclerView.addItemDecoration(new SpacesItemDecoration(16));
     }
     public class SpacesItemDecoration extends RecyclerView.ItemDecoration {

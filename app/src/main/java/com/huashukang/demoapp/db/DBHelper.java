@@ -7,20 +7,22 @@ import android.database.sqlite.SQLiteOpenHelper;
 /**
  * Created by SUCHU on 2016/2/1.
  */
-public class MyDBHelper extends SQLiteOpenHelper {
+public class DBHelper extends SQLiteOpenHelper {
     private static  final int DB_VERSION = 1;
     private static final  String DB_NAME= "userdb";
 
-    public MyDBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+
+
+    public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
 
-    public MyDBHelper(Context context,String name,int version){
+    public DBHelper(Context context, String name, int version){
        // super();
         super(context,name,null,version);
     }
     //
-    public MyDBHelper(Context context){
+    public DBHelper(Context context){
         this(context,DB_NAME,DB_VERSION);
         System.out.println("test.................");
     }

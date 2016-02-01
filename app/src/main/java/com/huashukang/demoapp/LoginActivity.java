@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.huashukang.demoapp.db.MyDBHelper;
+import com.huashukang.demoapp.db.DBHelper;
 
 public class LoginActivity extends AppCompatActivity {
     private Button button;
@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                 startActivity(intent);
-                SQLiteOpenHelper dbHelper = new MyDBHelper(LoginActivity.this);
+                SQLiteOpenHelper dbHelper = new DBHelper(LoginActivity.this);
                 SQLiteDatabase database = dbHelper.getReadableDatabase();
              //   dbHelper.getReadableDatabase();
 

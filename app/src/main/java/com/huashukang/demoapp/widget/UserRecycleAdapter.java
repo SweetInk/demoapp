@@ -33,7 +33,7 @@ public class UserRecycleAdapter extends RecyclerView.Adapter<UserRecycleAdapter.
     public void onBindViewHolder(UserInfo holder, int position) {
         UserEnity userEnity = lists.get(position);
         holder.name.setText(userEnity.name);
-        holder.bedno.setText(userEnity.bedno);
+        holder.bedno.setText(String.valueOf(userEnity.bedno));
     }
 
     public void setOnClickListener(OnClickListener listener){
