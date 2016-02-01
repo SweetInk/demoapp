@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Demo APP</string>
+    <string name="title_activity_user_detail_acitivity">UserDetailAcitivity</string>
+</resources>
