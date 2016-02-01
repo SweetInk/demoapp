@@ -8,8 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by SUCHU on 2016/2/1.
  */
 public class DBHelper extends SQLiteOpenHelper {
-    private static  final int DB_VERSION = 1;
-    private static final  String DB_NAME= "userdb";
+    private static  final int DB_VERSION = 1; //数据库版本
+    private static final  String DB_NAME= "userdb"; //数据库名称
 
 
 
@@ -27,6 +27,10 @@ public class DBHelper extends SQLiteOpenHelper {
         System.out.println("test.................");
     }
 
+    /**
+     * 创建表
+     * @param db
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
         System.out.println("on Create a database");

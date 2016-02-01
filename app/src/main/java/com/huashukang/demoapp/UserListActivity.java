@@ -7,12 +7,16 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.huashukang.demoapp.db.DBOperator;
 import com.huashukang.demoapp.pojo.UserEnity;
 import com.huashukang.demoapp.widget.UserRecycleAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 用户列表
+ */
 public class UserListActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private UserRecycleAdapter adapter;
@@ -21,13 +25,13 @@ public class UserListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_list);
         recyclerView = (RecyclerView) findViewById(R.id.user_list);
-        List<UserEnity> lists = new ArrayList<>();
-        for(int i =0;i<100;i++){
+        List<UserEnity> lists = DBOperator.getInstance().open(this).getAllUser();
+        /*for(int i =0;i<100;i++){
             UserEnity userEnity = new UserEnity();
             userEnity.bedno =i;
             userEnity.name = "test_data_"+i;
             lists.add(userEnity);
-        }
+        }*/
 
         adapter = new UserRecycleAdapter();
         adapter.setLists(lists);
@@ -53,4 +57,5 @@ public class UserListActivity extends AppCompatActivity {
             }
         }
     }
+
 }

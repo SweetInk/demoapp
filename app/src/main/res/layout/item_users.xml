@@ -36,6 +36,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="15号"
+            android:layout_gravity="right"
+            android:gravity="right"
             android:layout_weight="1"
             android:id="@+id/bedno"
             style="@style/Base.TextAppearance.AppCompat.Caption" />
@@ -61,6 +63,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="DELETE"
+            android:onClick="deleteUser"
             android:layout_marginLeft="15dp"
             android:textColor="@color/colorAccent"
             android:id="@+id/tv_del" />
