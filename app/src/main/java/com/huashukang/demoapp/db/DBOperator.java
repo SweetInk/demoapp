@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.huashukang.demoapp.pojo.PicEnity;
 import com.huashukang.demoapp.pojo.UserEnity;
@@ -52,6 +53,17 @@ public class DBOperator {
         contentValues.put("_bedno",userEnity.bedno);
         helper.getWritableDatabase().insert("userinfo",null,contentValues);
     }
+
+    /**
+     * 删除用户
+     * @param id
+     */
+    public void deleteUser(int id){
+        Log.i("DELETE",id+"");
+        helper.getWritableDatabase().delete("userinfo","_id=?",new String[]{id+""});
+    }
+
+
 
     /**
      * 插入照片信息

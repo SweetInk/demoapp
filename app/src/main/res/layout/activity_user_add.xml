@@ -1,17 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
     android:orientation="vertical"
-    android:fitsSystemWindows="true"
-    tools:context="com.huashukang.demoapp.UserDetailAcitivity">
-    <include layout="@layout/toolbar"
-        android:id="@+id/include" />
 
+    tools:context="com.huashukang.demoapp.UserAddActivity">
+<include layout="@layout/toolbar"/>
     <LinearLayout
+        android:layout_margin="1dp"
+        android:padding="15dp"
+        android:background="@drawable/line"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="姓名："
+            android:id="@+id/textView2" />
+
+        <EditText
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="住院患者姓名"
+            android:ems="10"
+            android:id="@+id/edt_name"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center"
         android:layout_margin="1dp"
         android:padding="15dp"
         android:background="@drawable/line"
@@ -28,39 +51,14 @@
             android:id="@+id/bedNO" />
 
         <EditText
+            android:gravity="center"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editText"
+            android:id="@+id/edt_bedno"
+            android:hint="住院患者床位号"
             android:layout_weight="1" />
     </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_margin="1dp"
-        android:padding="15dp"
-        android:background="@drawable/line"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="75dp"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="姓名："
-            android:id="@+id/textView2" />
-
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text=""
-            android:ems="10"
-            android:id="@+id/editText2"
-            android:layout_weight="1" />
-    </LinearLayout>
-
 
 </LinearLayout>
