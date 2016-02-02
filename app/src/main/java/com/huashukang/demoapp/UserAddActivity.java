@@ -18,8 +18,8 @@ public class UserAddActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_add);
-        edtName = (EditText) findViewById(R.id.edit_name);
-        edtBedNo = (EditText) findViewById(R.id.edit_bednumber);
+        edtName = (EditText) findViewById(R.id.edt_name);
+        edtBedNo = (EditText) findViewById(R.id.edt_bedno);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("用户登记");
         setSupportActionBar(toolbar);
@@ -28,19 +28,26 @@ public class UserAddActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.item_add_mesure:
-                        if(!edtName.getText().toString().equals("")||edtBedNo.getText().toString().equals("")) {
-                            DBOperator operator = DBOperator.getInstance();
-                            operator.open(UserAddActivity.this);
-                            UserEnity userEnity = new UserEnity();
+                        if((edtName.getText().toString().equals("")||edtBedNo.getText().toString().equals(""))) {
+                            Toast.makeText(UserAddActivity.this, "信息未填写完整", Toast.LENGTH_SHORT).show();
 
+                        }else{
+                            UserEnity userEnity = new UserEnity();
                             userEnity.name = edtName.getText().toString();
                             userEnity.bedno = Integer.valueOf(edtBedNo.getText().toString());
-                            operator.insertUser(userEnity);
-                            Intent intent = new Intent();
-                            setResult(0,intent);
-                            finish();
-                        }else{
-                            Toast.makeText(UserAddActivity.this, "信息未填写完整", Toast.LENGTH_SHORT).show();
+                            if(DBOperator.getInstance().open(UserAddActivity.this).checkBedNumUsed(userEnity.bedno)==0) {
+
+                                DBOperator operator = DBOperator.getInstance();
+                                operator.open(UserAddActivity.this);
+
+
+                                operator.insertUser(userEnity);
+                                Intent intent = new Intent();
+                                setResult(RESULT_OK, intent);
+                                finish();
+                            }else{
+                                Toast.makeText(UserAddActivity.this, "该床位号已被使用", Toast.LENGTH_SHORT).show();
+                            }
                         }break;
                 }
                 return true;

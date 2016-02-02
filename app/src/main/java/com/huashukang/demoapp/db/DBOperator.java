@@ -84,6 +84,7 @@ public class DBOperator {
     public List<UserEnity> getAllUser(){
         Cursor cursor =  helper.getReadableDatabase().query("userinfo",null,null,null,null,null,null);
         List<UserEnity > list = new ArrayList<>();
+        Log.i("TAG",cursor.getCount()+"");
         while(cursor.moveToNext()){
             UserEnity userEnity = new UserEnity();
             userEnity.id = cursor.getInt(cursor.getColumnIndex("_id"));
@@ -109,6 +110,24 @@ public class DBOperator {
             list.add(picEnity);
         }
         return list;
+    }
+
+    /**
+     * 判断床位号是否被占用
+     * @param bid 床位号。
+     * @return
+     */
+    public int checkBedNumUsed(int bid){
+        Cursor cursor = helper.getReadableDatabase().query("userinfo",new String[]{"count(_bedno) as counts"},"_bedno=?",new String[]{bid+""},
+        null,null,null,null);
+        int c = 0;
+     //   while(cursor.getCount())
+       while(cursor.moveToNext()){
+          c =  cursor.getInt(cursor.getColumnIndex("counts"));
+        //   return c;
+       }
+        Log.i("TAG---》数量",c+"");
+        return c;
     }
 
     /**

@@ -72,8 +72,10 @@ public class UserListActivity extends AppCompatActivity  implements UserRecycleA
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(resultCode==0){
+        if(resultCode==RESULT_OK && requestCode==REQUSET){
             Toast.makeText(this,"数据添加成功",Toast.LENGTH_SHORT).show();
+            adapter.setLists(DBOperator.getInstance().open(this).getAllUser());
+            adapter.notifyDataSetChanged();
         }
     }
 
