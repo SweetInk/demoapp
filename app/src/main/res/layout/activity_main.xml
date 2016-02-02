@@ -13,53 +13,20 @@
 
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="User Manage"
+        android:text="用户信息登记"
         android:onClick="userManage"
         android:id="@+id/btn_usermanage" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="BedSeat Manage"
+        android:text="用户照片采集"
         android:id="@+id/btn_bedseatmange"
         android:onClick="bedseatManage"
         android:layout_alignBottom="@+id/btn_usermanage"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:ems="10"
-        android:id="@+id/edit_name"
-        android:layout_below="@+id/btn_usermanage"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="47dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/edit_bednumber"
-        android:hint="BedSeat Number"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/edit_name"
-        android:layout_alignStart="@+id/edit_name" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Insert data"
-        android:id="@+id/btn_insert"
-        android:onClick="insertData"
-        android:layout_marginTop="51dp"
-        android:layout_below="@+id/edit_bednumber"
-        android:layout_alignLeft="@+id/edit_bednumber"
-        android:layout_alignStart="@+id/edit_bednumber" />
 
 </LinearLayout>

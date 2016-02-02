@@ -9,7 +9,33 @@
     android:fitsSystemWindows="true"
     tools:context="com.huashukang.demoapp.UserDetailAcitivity">
     <include layout="@layout/toolbar"
-        android:id="@+id/include" />
+        />
+
+    <LinearLayout
+        android:layout_margin="1dp"
+        android:padding="15dp"
+        android:background="@drawable/line"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="编号："
+            android:id="@+id/tv1" />
+
+        <EditText
+            android:enabled="false"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/edt_id"
+            android:layout_weight="1" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_margin="1dp"
@@ -32,7 +58,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editText"
+            android:id="@+id/edt_bedno"
             android:layout_weight="1" />
     </LinearLayout>
 
@@ -46,7 +72,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:layout_width="75dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="姓名："
@@ -56,9 +82,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text=""
             android:ems="10"
-            android:id="@+id/editText2"
+            android:id="@+id/edt_name"
             android:layout_weight="1" />
     </LinearLayout>
 

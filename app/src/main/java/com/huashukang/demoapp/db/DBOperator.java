@@ -113,6 +113,17 @@ public class DBOperator {
     }
 
     /**
+     * 更新用户信息
+     * @param userEnity 用户实体
+     */
+    public void updateUserinfo(UserEnity userEnity){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("_name",userEnity.name);
+        contentValues.put("_bedno",userEnity.bedno);
+        helper.getWritableDatabase().update("userinfo",contentValues,"_id=?",new String[]{userEnity.id+""});
+    }
+
+    /**
      * 判断床位号是否被占用
      * @param bid 床位号。
      * @return
@@ -121,10 +132,8 @@ public class DBOperator {
         Cursor cursor = helper.getReadableDatabase().query("userinfo",new String[]{"count(_bedno) as counts"},"_bedno=?",new String[]{bid+""},
         null,null,null,null);
         int c = 0;
-     //   while(cursor.getCount())
-       while(cursor.moveToNext()){
+         while(cursor.moveToNext()){
           c =  cursor.getInt(cursor.getColumnIndex("counts"));
-        //   return c;
        }
         Log.i("TAG---》数量",c+"");
         return c;

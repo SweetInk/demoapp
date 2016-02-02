@@ -17,10 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".UserListActivity" />
-        <activity
-            android:name=".UserDetailAcitivity"
-            android:label="@string/title_activity_user_detail_acitivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".UserDetailAcitivity" />
         <activity android:name=".BedListAcitivity" />
         <activity android:name=".UserAddActivity"></activity>
     </application>

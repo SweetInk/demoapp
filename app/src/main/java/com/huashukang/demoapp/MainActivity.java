@@ -17,7 +17,7 @@ import com.huashukang.demoapp.pojo.UserEnity;
 public class MainActivity extends AppCompatActivity {
     private Button btnUserManage;
     private Button btnBedSeatManage;
-    private EditText edtName,edtBedno;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,27 +25,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         btnBedSeatManage = (Button) findViewById(R.id.btn_bedseatmange);
         btnBedSeatManage = (Button) findViewById(R.id.btn_usermanage);
-        edtName = (EditText) findViewById(R.id.edit_name);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("MAIN UI");
+        toolbar.setTitle("功能选项");
         setSupportActionBar(toolbar);
-        edtBedno = (EditText) findViewById(R.id.edit_bednumber);
-        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.ab_search:
-                        Toast.makeText(MainActivity.this, "action_settings", 0).show();
-                        break;
-                    case R.id.ab_add:
-                        Toast.makeText(MainActivity.this, "action_share", 0).show();
-                        break;
-                    default:
-                        break;
-                }
-                return true;
-            }
-        });
+
     }
 
     public void bedseatManage(View view){
@@ -58,19 +42,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void insertData(View view){
-        Toast.makeText(this,"Insert data",Toast.LENGTH_SHORT).show();
-        DBOperator operator =  DBOperator.getInstance();
-        operator.open(this);
-        UserEnity userEnity = new UserEnity();
-        userEnity.name = edtName.getText().toString();
-        userEnity.bedno = Integer.valueOf(edtBedno.getText().toString());
-        operator.insertUser(userEnity);
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-       return true;
-    }
+
+
 }

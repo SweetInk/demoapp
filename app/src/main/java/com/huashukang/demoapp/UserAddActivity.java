@@ -30,17 +30,13 @@ public class UserAddActivity extends AppCompatActivity {
                     case R.id.item_add_mesure:
                         if((edtName.getText().toString().equals("")||edtBedNo.getText().toString().equals(""))) {
                             Toast.makeText(UserAddActivity.this, "信息未填写完整", Toast.LENGTH_SHORT).show();
-
                         }else{
                             UserEnity userEnity = new UserEnity();
                             userEnity.name = edtName.getText().toString();
                             userEnity.bedno = Integer.valueOf(edtBedNo.getText().toString());
                             if(DBOperator.getInstance().open(UserAddActivity.this).checkBedNumUsed(userEnity.bedno)==0) {
-
                                 DBOperator operator = DBOperator.getInstance();
                                 operator.open(UserAddActivity.this);
-
-
                                 operator.insertUser(userEnity);
                                 Intent intent = new Intent();
                                 setResult(RESULT_OK, intent);

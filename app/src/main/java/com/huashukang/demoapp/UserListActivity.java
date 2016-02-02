@@ -32,7 +32,8 @@ public class UserListActivity extends AppCompatActivity  implements UserRecycleA
     private RecyclerView recyclerView;
     private UserRecycleAdapter adapter;
     private final String TAG = "test";
-    public static final int REQUSET = 1;
+    public static final int REQUSET_ADD = 1;
+    public static  final int REQUEST_UPDATE = 2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +51,7 @@ public class UserListActivity extends AppCompatActivity  implements UserRecycleA
                         Toast.makeText(UserListActivity.this,"Add new User",Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(UserListActivity.this,UserAddActivity.class);
                      //   startActivity(intent);
-                        startActivityForResult(intent,REQUSET);
+                        startActivityForResult(intent,REQUSET_ADD);
                         break;
 
 
@@ -72,8 +73,12 @@ public class UserListActivity extends AppCompatActivity  implements UserRecycleA
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(resultCode==RESULT_OK && requestCode==REQUSET){
+        if(resultCode==RESULT_OK && requestCode==REQUSET_ADD){
             Toast.makeText(this,"数据添加成功",Toast.LENGTH_SHORT).show();
+            adapter.setLists(DBOperator.getInstance().open(this).getAllUser());
+            adapter.notifyDataSetChanged();
+        }else if(resultCode==RESULT_OK && requestCode==REQUEST_UPDATE){
+            Toast.makeText(this,"更新成功",Toast.LENGTH_SHORT).show();
             adapter.setLists(DBOperator.getInstance().open(this).getAllUser());
             adapter.notifyDataSetChanged();
         }
@@ -82,6 +87,11 @@ public class UserListActivity extends AppCompatActivity  implements UserRecycleA
     @Override
     public void onItemClick(View view, int position) {
         Log.i(TAG,"点击项："+position);
+        Intent intent = new Intent(this,UserDetailAcitivity.class);
+        intent.putExtra("name",adapter.lists.get(position).name);
+        intent.putExtra("bno",adapter.lists.get(position).bedno);
+        intent.putExtra("id",adapter.lists.get(position).id);
+        startActivityForResult(intent,REQUEST_UPDATE);
     }
 
     @Override

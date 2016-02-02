@@ -21,7 +21,7 @@ import java.util.List;
  * Created by SUCHU on 2016/2/1.
  */
 public class UserRecycleAdapter extends RecyclerView.Adapter<UserRecycleAdapter.UserInfo>  implements SlidingButtonView.IonSlidingButtonListener  {
-    private List<UserEnity> lists;
+    public List<UserEnity> lists;
     //private OnClickListener listener;
 
     private Context mContext;
