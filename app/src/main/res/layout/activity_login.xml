@@ -3,13 +3,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/bg_login"
     tools:context="com.huashukang.demoapp.LoginActivity">
-<include layout="@layout/toolbar"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login"
         android:id="@+id/button"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/editText2"
+        android:layout_alignLeft="@+id/editText2"
+        android:layout_alignStart="@+id/editText2"
+        android:layout_marginTop="31dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text=""
+        android:hint="用户名"
+        android:gravity="center"
+        android:ems="10"
+        android:drawableLeft="@mipmap/user"
+        android:id="@+id/editText"
+        android:background="@null"
+        android:layout_marginTop="172dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/editText2"
+        android:layout_alignStart="@+id/editText2" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:gravity="center"
+        android:background="@null"
+        android:hint="密码"
+        android:drawableLeft="@mipmap/password"
+        android:id="@+id/editText2"
+
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/editText"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

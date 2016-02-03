@@ -6,6 +6,7 @@
         android:id="@+id/item_add_mesure"
         android:title="完成"
         android:orderInCategory="80"
+        android:icon="@mipmap/icon_ok"
         app:showAsAction="always|withText"/>
 
 </menu>

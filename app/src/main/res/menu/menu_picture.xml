@@ -4,10 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     >
     <item
-        android:id="@+id/item_add"
-        android:title="添加数据"
+        android:id="@+id/item_tkpic"
+        android:title="拍照"
         android:orderInCategory="80"
-        android:icon="@mipmap/ico_add"
+        android:icon="@mipmap/tk_pic"
+        app:showAsAction="always|withText"
+        ></item>
+    <item
+        android:id="@+id/item_upload"
+        android:title="上传"
+        android:orderInCategory="80"
+        android:icon="@mipmap/upload"
         app:showAsAction="always|withText"
         ></item>
 </menu>

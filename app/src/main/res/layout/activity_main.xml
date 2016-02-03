@@ -15,14 +15,14 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="用户信息登记"
+        android:text="患者登记"
         android:onClick="userManage"
         android:id="@+id/btn_usermanage" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="用户照片采集"
+        android:text="照片采集"
         android:id="@+id/btn_bedseatmange"
         android:onClick="bedseatManage"
         android:layout_alignBottom="@+id/btn_usermanage"

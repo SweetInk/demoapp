@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Demo APP</string>
+    <string name="app_name">人脸识别</string>
     <string name="title_activity_user_detail_acitivity">UserDetailAcitivity</string>
 </resources>

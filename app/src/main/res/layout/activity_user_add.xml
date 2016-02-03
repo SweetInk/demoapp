@@ -31,6 +31,7 @@
             android:hint="住院患者姓名"
             android:ems="10"
             android:id="@+id/edt_name"
+            android:background="@null"
             android:layout_weight="1" />
     </LinearLayout>
     <LinearLayout
@@ -57,6 +58,7 @@
             android:inputType="number"
             android:ems="10"
             android:id="@+id/edt_bedno"
+            android:background="@null"
             android:hint="住院患者床位号"
             android:layout_weight="1" />
     </LinearLayout>
