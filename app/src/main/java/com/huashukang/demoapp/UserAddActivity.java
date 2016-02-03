@@ -1,5 +1,4 @@
 package com.huashukang.demoapp;
-
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,21 +7,27 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.huashukang.demoapp.db.DBOperator;
 import com.huashukang.demoapp.pojo.UserEnity;
-
 public class UserAddActivity extends AppCompatActivity {
     private EditText edtName,edtBedNo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_user_add);
+
         edtName = (EditText) findViewById(R.id.edt_name);
+
         edtBedNo = (EditText) findViewById(R.id.edt_bedno);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         toolbar.setTitle("用户登记");
+
         setSupportActionBar(toolbar);
+
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -41,17 +46,15 @@ public class UserAddActivity extends AppCompatActivity {
                                 Intent intent = new Intent();
                                 setResult(RESULT_OK, intent);
                                 finish();
-                            }else{
-                                Toast.makeText(UserAddActivity.this, "该床位号已被使用", Toast.LENGTH_SHORT).show();
+                            }else {
+                               Toast.makeText(UserAddActivity.this, "该床位号已被使用", Toast.LENGTH_SHORT).show();
                             }
                         }break;
                 }
                 return true;
             }
         });
-
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_user_add, menu);

@@ -70,11 +70,12 @@ public class DBOperator {
      * @param picEnity
      * @throws Exception
      */
-    public void insertPicInfo(PicEnity picEnity) throws Exception {
+    public void insertPicInfo(PicEnity picEnity) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("_path",picEnity.path);
         contentValues.put("_userid",picEnity.userid);
         helper.getWritableDatabase().insert("userpic",null,contentValues);
+        Log.i("insert","insert data");
     }
 
     /**
@@ -111,6 +112,9 @@ public class DBOperator {
         }
         return list;
     }
+
+
+
 
     /**
      * 更新用户信息

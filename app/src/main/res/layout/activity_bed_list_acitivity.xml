@@ -9,4 +9,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.huashukang.demoapp.BedListAcitivity">
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/bed_list_id"
+        android:divider="#ffff0000"
+        android:dividerHeight="10dp"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        />
+
 </RelativeLayout>
