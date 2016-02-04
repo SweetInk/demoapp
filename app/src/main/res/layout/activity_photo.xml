@@ -105,13 +105,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.huashukang.demoapp.widget.MatrixImageView
+            <ImageView
                 android:layout_width="match_parent"
                 android:background="@color/cardview_light_background"
                 android:layout_height="match_parent"
                 android:id="@+id/picture"
                 android:scaleType="center"
-                android:src="@mipmap/iconfont_bg_default" ></com.huashukang.demoapp.widget.MatrixImageView>
+                android:src="@mipmap/iconfont_bg_default" ></ImageView>
         </LinearLayout>
     </LinearLayout>
     </LinearLayout>

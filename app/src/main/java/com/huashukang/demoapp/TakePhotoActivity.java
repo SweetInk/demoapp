@@ -95,25 +95,7 @@ public class TakePhotoActivity extends AppCompatActivity {
 
                     case R.id.item_tkpic:
 
-                        File outputImage = new File(nameDir, userEnity.id+"_"+new Date().getTime()+"_"+userEnity.bedno+".jpg");
-                        try {
-                            if (!outputImage.exists()) {
-                                outputImage.createNewFile();
-
-                            }else {
-                                // outputInage.
-                                outputImage.delete();
-                                //.d
-                                outputImage.createNewFile();
-                            }
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-
-                        imageUri = Uri.fromFile(outputImage);
-                        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-                        startActivityForResult(intent, TAKE_PHOTO);//启动相机程序
+                       startCamera();
 
                         break;
                     case R.id.item_upload:
@@ -123,6 +105,15 @@ public class TakePhotoActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        picture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startCamera();//method
+            }
+        });
+
+
 
         //上一条记录按钮监听
 
@@ -139,7 +130,7 @@ public class TakePhotoActivity extends AppCompatActivity {
                 tvId.setText(String.valueOf(userEnity.id));
                 tvBedNo.setText(String.valueOf(userEnity.bedno));
                 picture.setImageResource(R.mipmap.iconfont_bg_default);
-                picture.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                picture.setScaleType(ImageView.ScaleType.CENTER);
             }
         });
 
@@ -152,13 +143,14 @@ public class TakePhotoActivity extends AppCompatActivity {
                 if(currentIndex>lists.size()-1){
                     currentIndex = 0;
                 }
-                picture.setImageResource(R.mipmap.iconfont_bg_default);
-                picture.setScaleType(ImageView.ScaleType.FIT_CENTER);
+
              //   Toast.makeText(TakePhotoActivity.this,"index:"+currentIndex,Toast.LENGTH_SHORT).show();;
                 userEnity = lists.get(currentIndex);
                 tvName.setText(userEnity.name);
                 tvId.setText(String.valueOf(userEnity.id));
                 tvBedNo.setText(String.valueOf(userEnity.bedno));
+                picture.setImageResource(R.mipmap.iconfont_bg_default);
+                picture.setScaleType(ImageView.ScaleType.CENTER);
             }
         });
        /* picture.setOnClickListener(new View.OnClickListener() {
@@ -188,6 +180,31 @@ public class TakePhotoActivity extends AppCompatActivity {
         });*/
     }
 
+    /**
+     * 启动相机
+     */
+    private void startCamera(){
+
+        File outputImage = new File(nameDir, userEnity.id+"_"+new Date().getTime()+"_"+userEnity.bedno+".jpg");
+        try {
+            if (!outputImage.exists()) {
+                outputImage.createNewFile();
+
+            }else {
+                // outputInage.
+                outputImage.delete();
+                //.d
+                outputImage.createNewFile();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        imageUri = Uri.fromFile(outputImage);
+        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+        startActivityForResult(intent, TAKE_PHOTO);//启动相机程序
+    }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -225,9 +242,9 @@ public class TakePhotoActivity extends AppCompatActivity {
                         Bitmap bitmap = BitmapFactory.decodeStream
                                 (getContentResolver()
                                         .openInputStream(imageUri));
-                        picture.setScaleType(ImageView.ScaleType.FIT_CENTER);
-                        picture.setImageBitmap(ImageTools.zoomBitmap(bitmap,1024,1024));
 
+                        picture.setImageBitmap(ImageTools.zoomBitmap(bitmap,1024,1024));
+                        picture.setScaleType(ImageView.ScaleType.FIT_XY);
                         Log.i(TAG,imageUri.getPath());
                       //  Toast.makeText(TakePhotoActivity.this,"Chenggong",Toast.LENGTH_SHORT).show();
                     } catch (FileNotFoundException e) {
