@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
     }
     public void bedseatManage(View view){
-        Toast.makeText(this,"bedseatManage",Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this,"bedseatManage",Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this,BedListAcitivity.class);
         startActivity(intent);
     }

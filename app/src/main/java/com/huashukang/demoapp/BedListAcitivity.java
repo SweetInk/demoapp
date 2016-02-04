@@ -16,6 +16,7 @@ import com.huashukang.demoapp.pojo.UserEnity;
 import com.huashukang.demoapp.widget.BedAdapter;
 import com.huashukang.demoapp.widget.DividerGridItemDecoration;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,7 +50,7 @@ public class BedListAcitivity extends AppCompatActivity {
         mAdapter.setOnItemClickListener(new BedAdapter.OnItemClickListener() {
             @Override
             public void OnItemClick(View view, int position) {
-                Toast.makeText(BedListAcitivity.this,"POSITION:"+position,Toast.LENGTH_SHORT).show();
+                //Toast.makeText(BedListAcitivity.this,"POSITION:"+position,Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(BedListAcitivity.this,TakePhotoActivity.class);
                 UserEnity bean = new UserEnity();
                 bean = infoList.get(position);
@@ -57,6 +58,8 @@ public class BedListAcitivity extends AppCompatActivity {
                 Bundle bundle = new Bundle();
                 Log.i("size",infoList.size()+"");
                 bundle.putSerializable("userbean",userEnity);
+                bundle.putSerializable("lists",(Serializable)infoList);
+                intent.putExtra("position",position);
                 Log.i("userbaen",userEnity.name+"_"+userEnity.id+"_"+userEnity.bedno);
                 intent.putExtras(bundle);
                 startActivity(intent);

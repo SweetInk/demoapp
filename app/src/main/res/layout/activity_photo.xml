@@ -16,62 +16,84 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:padding="25dp"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
             android:orientation="horizontal"
+            android:gravity="center_horizontal"
             android:layout_width="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
             android:layout_height="wrap_content">
 
 
-            <TextView
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/img_btn_left"
+                android:id="@+id/img_prev" />
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="编号："
-                android:id="@+id/textView3" />
+                android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:layout_marginRight="10dp"
-                android:text="2"
-                android:id="@+id/tv_id" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="编号："
+                    android:id="@+id/textView3" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="姓名："
-                android:id="@+id/textView5" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_marginRight="10dp"
+                    android:text="2"
+                    android:id="@+id/tv_id" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:layout_marginRight="10dp"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="姓名："
+                    android:id="@+id/textView5" />
 
-                android:text="张三"
-                android:id="@+id/tv_name" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_marginRight="10dp"
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="床号："
-                android:id="@+id/textView7" />
+                    android:text="张三"
+                    android:id="@+id/tv_name" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:layout_marginRight="10dp"
-                android:text="12"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="床号："
+                    android:id="@+id/textView7" />
 
-                android:id="@+id/tv_bedno" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_marginRight="10dp"
+                    android:text="12"
+
+                    android:id="@+id/tv_bedno" />
+            </LinearLayout>
+
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/img_btn_right"
+                android:id="@+id/img_next" />
         </LinearLayout>
 
         <LinearLayout
@@ -79,11 +101,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
+            <com.huashukang.demoapp.widget.MatrixImageView
                 android:layout_width="match_parent"
+                android:background="@color/cardview_light_background"
                 android:layout_height="match_parent"
                 android:id="@+id/picture"
-                android:background="@mipmap/ic_launcher" />
+                android:scaleType="center"
+                android:src="@mipmap/iconfont_bg_default" ></com.huashukang.demoapp.widget.MatrixImageView>
         </LinearLayout>
     </LinearLayout>
     </LinearLayout>

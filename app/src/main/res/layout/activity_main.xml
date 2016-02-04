@@ -20,9 +20,13 @@
         >
 
         <Button
+            android:drawableTop="@mipmap/iconfont_iimmunizations"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="患者登记"
+            android:padding="5dp"
+            android:layout_margin="15dp"
+            android:background="@color/cardview_light_background"
             android:onClick="userManage"
             android:id="@+id/btn_usermanage" />
 
@@ -30,6 +34,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="照片采集"
+            android:background="@color/cardview_light_background"
+            android:padding="5dp"
+            android:drawableTop="@mipmap/iconfont_iinfectiousdiseases"
             android:id="@+id/btn_bedseatmange"
             android:onClick="bedseatManage"
             android:layout_alignBottom="@+id/btn_usermanage"

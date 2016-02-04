@@ -7,14 +7,14 @@
         android:id="@+id/item_tkpic"
         android:title="拍照"
         android:orderInCategory="80"
-        android:icon="@mipmap/tk_pic"
+        android:icon="@mipmap/icon_tk_pic"
         app:showAsAction="always|withText"
         ></item>
     <item
         android:id="@+id/item_upload"
         android:title="上传"
         android:orderInCategory="80"
-        android:icon="@mipmap/upload"
+        android:icon="@mipmap/icon_upload"
         app:showAsAction="always|withText"
         ></item>
 </menu>
