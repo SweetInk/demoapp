@@ -24,10 +24,10 @@ public class UserAddActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        toolbar.setTitle("用户登记");
+        toolbar.setTitle("患者登记");
 
         setSupportActionBar(toolbar);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -50,11 +50,23 @@ public class UserAddActivity extends AppCompatActivity {
                                Toast.makeText(UserAddActivity.this, "该床位号已被使用", Toast.LENGTH_SHORT).show();
                             }
                         }break;
+
+
                 }
                 return true;
             }
         });
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId()==android.R.id.home){
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_user_add, menu);

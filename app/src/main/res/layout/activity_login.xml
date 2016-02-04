@@ -4,46 +4,71 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/bg_login"
+    android:padding="15dp"
     tools:context="com.huashukang.demoapp.LoginActivity">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        android:id="@+id/button"
-        android:layout_below="@+id/editText2"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2"
-        android:layout_marginTop="31dp" />
+    <LinearLayout
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text=""
-        android:hint="用户名"
-        android:gravity="center"
-        android:ems="10"
-        android:drawableLeft="@mipmap/user"
-        android:id="@+id/editText"
-        android:background="@null"
-        android:layout_marginTop="172dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2" />
+        <LinearLayout
+            android:layout_margin="1dp"
+            android:padding="15dp"
+            android:background="@drawable/line"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:gravity="center"
-        android:background="@null"
-        android:hint="密码"
-        android:drawableLeft="@mipmap/password"
-        android:id="@+id/editText2"
+            <EditText
 
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/editText"
-        android:layout_centerHorizontal="true" />
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="用户编号"
+                android:ems="10"
+                android:id="@+id/edt_name"
+                android:drawableLeft="@mipmap/user"
+
+                android:background="@null"
+                android:layout_weight="1" />
+        </LinearLayout>
+        <LinearLayout
+
+            android:layout_margin="1dp"
+            android:padding="15dp"
+            android:background="@drawable/line"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+
+            <EditText
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textWebPassword"
+                android:ems="10"
+                android:drawableLeft="@mipmap/password"
+                android:id="@+id/edt_bedno"
+                android:background="@null"
+                android:hint="用户密码"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="登录"
+            android:layout_margin="5dp"
+            android:id="@+id/button"
+            android:background="@drawable/bg_btn_login"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal" />
+
+
+    </LinearLayout>
+
 </RelativeLayout>

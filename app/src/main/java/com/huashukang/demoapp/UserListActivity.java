@@ -39,16 +39,17 @@ public class UserListActivity extends AppCompatActivity  implements UserRecycleA
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("用户登记管理");
+        toolbar.setTitle("患者登记管理");
 
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 //Toast.makeText(UserListActivity.this,"clicked",Toast.LENGTH_SHORT).show();
                 switch (item.getItemId()){
                     case R.id.item_add:
-                        Toast.makeText(UserListActivity.this,"Add new User",Toast.LENGTH_SHORT).show();
+                    //    Toast.makeText(UserListActivity.this,"Add new User",Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(UserListActivity.this,UserAddActivity.class);
                      //   startActivity(intent);
                         startActivityForResult(intent,REQUSET_ADD);
@@ -98,6 +99,15 @@ public class UserListActivity extends AppCompatActivity  implements UserRecycleA
     public void onDeleteBtnCilck(View view, int position) {
         Log.i(TAG,"删除项："+position);
         adapter.removeData(position);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId()==android.R.id.home){
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         btnBedSeatManage = (Button) findViewById(R.id.btn_usermanage);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("功能选项");
+        toolbar.setTitle("人脸识别");
         setSupportActionBar(toolbar);
     }
     public void bedseatManage(View view){
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void userManage(View view){
-        Toast.makeText(this,"userManage",Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this,"userManage",Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this,UserListActivity.class);
         startActivity(intent);
     }

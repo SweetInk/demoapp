@@ -19,9 +19,7 @@ public class LoginActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_login);
         button = (Button)findViewById(R.id.button);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("管理员登录");
-        setSupportActionBar(toolbar);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
