@@ -24,6 +24,7 @@
             android:orientation="horizontal"
             android:gravity="center_horizontal"
             android:layout_width="match_parent"
+            android:weightSum="1"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
             android:layout_height="wrap_content">
@@ -32,13 +33,15 @@
             <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:layout_weight="0.2"
                 android:background="@drawable/img_btn_left"
                 android:id="@+id/img_prev" />
 
             <LinearLayout
                 android:gravity="center"
+                android:layout_weight="0.6"
                 android:orientation="horizontal"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -90,6 +93,7 @@
             </LinearLayout>
 
             <ImageButton
+                android:layout_weight="0.2"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/img_btn_right"

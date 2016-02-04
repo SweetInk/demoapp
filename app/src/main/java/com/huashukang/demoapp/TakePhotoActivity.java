@@ -133,12 +133,13 @@ public class TakePhotoActivity extends AppCompatActivity {
                 if(currentIndex<0){
                     currentIndex = lists.size()-1;
                 }
-                Toast.makeText(TakePhotoActivity.this,"index:"+currentIndex,Toast.LENGTH_SHORT).show();;
+             //   Toast.makeText(TakePhotoActivity.this,"index:"+currentIndex,Toast.LENGTH_SHORT).show();;
                 userEnity = lists.get(currentIndex);
                 tvName.setText(userEnity.name);
                 tvId.setText(String.valueOf(userEnity.id));
                 tvBedNo.setText(String.valueOf(userEnity.bedno));
                 picture.setImageResource(R.mipmap.iconfont_bg_default);
+                picture.setScaleType(ImageView.ScaleType.FIT_CENTER);
             }
         });
 
@@ -152,7 +153,8 @@ public class TakePhotoActivity extends AppCompatActivity {
                     currentIndex = 0;
                 }
                 picture.setImageResource(R.mipmap.iconfont_bg_default);
-                Toast.makeText(TakePhotoActivity.this,"index:"+currentIndex,Toast.LENGTH_SHORT).show();;
+                picture.setScaleType(ImageView.ScaleType.FIT_CENTER);
+             //   Toast.makeText(TakePhotoActivity.this,"index:"+currentIndex,Toast.LENGTH_SHORT).show();;
                 userEnity = lists.get(currentIndex);
                 tvName.setText(userEnity.name);
                 tvId.setText(String.valueOf(userEnity.id));
@@ -223,7 +225,7 @@ public class TakePhotoActivity extends AppCompatActivity {
                         Bitmap bitmap = BitmapFactory.decodeStream
                                 (getContentResolver()
                                         .openInputStream(imageUri));
-                        picture.setScaleType(ImageView.ScaleType.FIT_XY);
+                        picture.setScaleType(ImageView.ScaleType.FIT_CENTER);
                         picture.setImageBitmap(ImageTools.zoomBitmap(bitmap,1024,1024));
 
                         Log.i(TAG,imageUri.getPath());
@@ -253,6 +255,7 @@ public class TakePhotoActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     picture.setImageBitmap(bitmap); // 将裁剪后的照片显示出来
+
                 }
                 break;
             default:
