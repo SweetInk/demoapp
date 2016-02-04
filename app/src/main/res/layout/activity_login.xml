@@ -22,7 +22,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:contentDescription="@string/login"
-        android:src="@mipmap/logo" />
+        android:src="@mipmap/icon_logo_red" />
 
     <LinearLayout
         android:id="@+id/loginli"
@@ -34,13 +34,16 @@
         android:orientation="vertical" >
 
         <EditText
+
             android:id="@+id/loginId"
             android:layout_width="fill_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
+
             android:hint="@string/id"
             android:textColorHint="#CDCDC1"
-            android:textSize="25dp"
+            android:textSize="18dp"
+            android:background="@null"
             android:drawableLeft="@mipmap/icon_account"
             android:gravity="center"
             android:layout_marginTop="20dp" />
@@ -58,14 +61,24 @@
             android:layout_width="fill_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
+
             android:hint="@string/password"
+            android:background="@null"
             android:inputType="textPassword"
             android:textColorHint="#CDCDC1"
-            android:textSize="25dp"
+            android:textSize="18dp"
             android:drawableLeft="@mipmap/icon_pwd"
             android:gravity="center"
-
             android:layout_marginTop="20dp" />
+        <LinearLayout
+            android:id="@+id/loginline2"
+
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D7D7D7"
+            android:orientation="vertical" >
+        </LinearLayout>
+
     </LinearLayout>
 
     <Button
@@ -75,12 +88,37 @@
         android:layout_below="@+id/loginli"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="35dp"
         android:background="@drawable/edittext_login"
         android:includeFontPadding="false"
         android:text="@string/loginButton"
         android:textColor="#ffffff"
         android:textSize="30dp"
         />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/logo"
+            android:id="@+id/imageView" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textColor="#555"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="华数康"
+
+            android:id="@+id/textView4" />
+    </LinearLayout>
 
 </RelativeLayout>
