@@ -322,8 +322,9 @@ public class ChoosePhoto extends AppCompatActivity implements ListImageDirPopupW
 			@Override
 			public boolean accept(File dir, String filename)
 			{
+				
 				return (filename.endsWith(".jpg") || filename.endsWith(".png")
-						|| filename.endsWith(".jpeg")) && (new File(filename).length() > 0);
+						|| filename.endsWith(".jpeg"));
 			}
 		}));
 		/**

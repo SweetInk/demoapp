@@ -13,7 +13,7 @@ import com.huashukang.picgrab.R;
 public class MainActivity extends AppCompatActivity {
     private Button btnUserManage;
     private Button btnBedSeatManage;
-
+    private Button btnUpload;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         btnBedSeatManage = (Button) findViewById(R.id.btn_bedseatmange);
         btnBedSeatManage = (Button) findViewById(R.id.btn_usermanage);
-
+        btnUpload = (Button)findViewById(R.id.btn_upload);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("人像采集");
         setSupportActionBar(toolbar);
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void imgUpload() {
+    public void imgUpload(View view) {
         Intent intent2 = new Intent(this, ChoosePhoto.class);
         startActivity(intent2);
 
