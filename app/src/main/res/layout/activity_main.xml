@@ -7,13 +7,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    tools:context="com.huashukang.demoapp.MainActivity">
+    tools:context="com.huashukang.picgrab.activity.MainActivity">
 
     <include layout="@layout/toolbar" />
 
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal|center_vertical"
@@ -33,12 +33,27 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="照片采集"
+            android:text="人像采集"
             android:background="@color/cardview_light_background"
             android:padding="5dp"
             android:drawableTop="@mipmap/iconfont_iinfectiousdiseases"
             android:id="@+id/btn_bedseatmange"
             android:onClick="bedseatManage"
+            android:layout_alignBottom="@+id/btn_usermanage"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="图片上传"
+            android:background="@color/cardview_light_background"
+            android:padding="5dp"
+
+            android:layout_margin="15dp"
+            android:drawableTop="@mipmap/iconfont_upload"
+            android:id="@+id/btn_upload"
+            android:onClick="imgUpload"
             android:layout_alignBottom="@+id/btn_usermanage"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />

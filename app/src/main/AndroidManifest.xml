@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.huashukang.demoapp">
+    package="com.huashukang.picgrab">
     <!--声明写入SD卡权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <!--声明SD卡中创建与删除文件权限 -->
@@ -13,8 +13,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.LoginActivity">
 
             <intent-filter>
 
@@ -25,12 +25,12 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".UserListActivity" />
-        <activity android:name=".UserDetailAcitivity" />
-        <activity android:name=".BedListAcitivity" />
-        <activity android:name=".UserAddActivity"/>
-        <activity android:name=".TakePhotoActivity"/>
-        <activity android:name=".widget.ChoosePhoto"/>
+        <activity android:name=".activity.UserListActivity" />
+        <activity android:name=".activity.UserDetailAcitivity" />
+        <activity android:name=".activity.BedListAcitivity" />
+        <activity android:name=".activity.UserAddActivity"/>
+        <activity android:name=".activity.TakePhotoActivity"/>
+        <activity android:name=".activity.ChoosePhoto"/>
     </application>
 
 </manifest>

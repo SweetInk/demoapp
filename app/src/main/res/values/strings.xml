@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">人脸识别</string>
+    <string name="app_name">人像采集</string>
     <string name="login">登录界面</string>
     <string name="loginButton">登陆</string>
     <string name="id">请输入登录帐号</string>
