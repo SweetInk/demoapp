@@ -25,11 +25,13 @@ import android.widget.Toast;
 import com.huashukang.demoapp.db.DBOperator;
 import com.huashukang.demoapp.pojo.PicEnity;
 import com.huashukang.demoapp.pojo.UserEnity;
+import com.huashukang.demoapp.utils.HttpUtils;
 import com.huashukang.demoapp.utils.ImageTools;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -44,10 +46,12 @@ public class TakePhotoActivity extends AppCompatActivity {
     private static final String TAG ="TakePhotoActivity";
     private ImageView picture;
     private ImageButton prev,next;
+    private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
     private TextView tvId,tvName,tvBedNo;
     private  int currentIndex;//当前用户索引
     private Uri imageUri,rl;
-    private File rootPath,subDir,nameDir;//三级目录 {根目录 / 床位号 / 患者名}
+
+    private File rootPath,currentDay,subDir,nameDir;//三级目录 {根目录/tian / 床位号 / 患者名}
     private List<UserEnity> lists;
     UserEnity userEnity;
     @Override
@@ -69,9 +73,11 @@ public class TakePhotoActivity extends AppCompatActivity {
         next = (ImageButton) findViewById(R.id.img_next);
         tvBedNo = (TextView) findViewById(R.id.tv_bedno);
         picture = (ImageView) findViewById(R.id.picture);
-
+        Log.i("TAG",sdf.format(new Date()));
         rootPath = new File(Environment.getExternalStorageDirectory()+File.separator+"hskpicCache");
-        subDir = new File(rootPath,String.valueOf(userEnity.bedno));
+        currentDay = new File(rootPath,sdf.format(new Date()));
+
+        subDir = new File(currentDay,String.valueOf(userEnity.bedno));
         nameDir = new File(subDir,userEnity.name);
    //     Toast.makeText(this,userEnity.id+","+userEnity.name+","+userEnity.bedno,Toast.LENGTH_SHORT).show();
         tvName.setText(userEnity.name);
@@ -79,6 +85,9 @@ public class TakePhotoActivity extends AppCompatActivity {
         tvBedNo.setText(String.valueOf(userEnity.bedno));
         if(!rootPath.exists()){
             rootPath.mkdir();
+        }
+        if(!currentDay.exists()){
+            currentDay.mkdir();
         }
         if(!subDir.exists()){
             subDir.mkdir();
@@ -100,6 +109,21 @@ public class TakePhotoActivity extends AppCompatActivity {
                         break;
                     case R.id.item_upload:
                         Toast.makeText(TakePhotoActivity.this,"上传",Toast.LENGTH_SHORT).show();
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                File file = new File(imageUri.getPath());
+                                Log.i("PARENT",file.getParent());
+                                File f = file.getParentFile();
+                              File []list = f.listFiles();
+                                for(File fi:list){
+                                    if(!fi.isDirectory()){
+                                        HttpUtils.upload(fi);
+                                    }
+                                }
+                               // HttpUtils.upload();
+                            }
+                        }).start();
                         break;
                 }
                 return true;
@@ -126,10 +150,19 @@ public class TakePhotoActivity extends AppCompatActivity {
                 }
              //   Toast.makeText(TakePhotoActivity.this,"index:"+currentIndex,Toast.LENGTH_SHORT).show();;
                 userEnity = lists.get(currentIndex);
+
                 tvName.setText(userEnity.name);
                 tvId.setText(String.valueOf(userEnity.id));
                 tvBedNo.setText(String.valueOf(userEnity.bedno));
                 picture.setImageResource(R.mipmap.iconfont_bg_default);
+                subDir = new File(currentDay,String.valueOf(userEnity.bedno));
+                nameDir = new File(subDir,userEnity.name);
+                if(!subDir.exists()){
+                    subDir.mkdir();
+                }
+                if(!nameDir.exists()){
+                    nameDir.mkdir();
+                }
                 picture.setScaleType(ImageView.ScaleType.CENTER);
             }
         });
@@ -150,6 +183,14 @@ public class TakePhotoActivity extends AppCompatActivity {
                 tvId.setText(String.valueOf(userEnity.id));
                 tvBedNo.setText(String.valueOf(userEnity.bedno));
                 picture.setImageResource(R.mipmap.iconfont_bg_default);
+                subDir = new File(currentDay,String.valueOf(userEnity.bedno));
+                nameDir = new File(subDir,userEnity.name);
+                if(!subDir.exists()){
+                    subDir.mkdir();
+                }
+                if(!nameDir.exists()){
+                    nameDir.mkdir();
+                }
                 picture.setScaleType(ImageView.ScaleType.CENTER);
             }
         });
