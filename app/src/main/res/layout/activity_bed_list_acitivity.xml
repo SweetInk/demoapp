@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    tools:context="com.huashukang.demoapp.BedListAcitivity">
+    tools:context="com.huashukang.picgrab.activity.BedListAcitivity">
 <include layout="@layout/toolbar"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/bed_list_id"

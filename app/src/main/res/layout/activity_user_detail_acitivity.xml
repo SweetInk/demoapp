@@ -7,7 +7,7 @@
 
     android:orientation="vertical"
     android:fitsSystemWindows="true"
-    tools:context="com.huashukang.demoapp.UserDetailAcitivity">
+    tools:context="com.huashukang.picgrab.activity.UserDetailAcitivity">
     <include layout="@layout/toolbar"
         />
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.huashukang.demoapp.widget.SlidingButtonView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.huashukang.picgrab.widget.SlidingButtonView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:background="@android:color/white"
@@ -50,4 +50,4 @@
 
     </RelativeLayout>
 
-</com.huashukang.demoapp.widget.SlidingButtonView>
+</com.huashukang.picgrab.widget.SlidingButtonView>
