@@ -7,4 +7,5 @@ import android.app.Application;
  * 基础Application 方便获取Context上下文
  */
 public class BaseApplication extends Application {
+    // commit
 }
