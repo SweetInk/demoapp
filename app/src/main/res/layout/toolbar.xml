@@ -5,11 +5,17 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:title="Title"
-    app:logo="@mipmap/logo"
     app:titleTextColor="#fff"
     android:background="?attr/colorPrimary"
     android:minHeight="?attr/actionBarSize"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
     app:theme="@style/ThemeOverlay.AppCompat.ActionBar" >
+    <TextView
+        android:textColor="#FFFFFF"
+        android:id="@+id/toolbar_title"
+        android:layout_gravity="center"
+        android:textSize="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       />
 </android.support.v7.widget.Toolbar>
