@@ -223,7 +223,7 @@ public class ChoosePhoto extends AppCompatActivity implements ListImageDirPopupW
 						imageFloder = new ImageFloder();
 						imageFloder.setDir(dirPath);
 
-						imageFloder.setFirstImagePath(picList[0]);
+						imageFloder.setFirstImagePath(dirPath+"/"+picList[0]);
 						Log.i("File Name:", picList[0]);
 						imageFloder.setCount(picSize);
 						mImageFloders.add(imageFloder);

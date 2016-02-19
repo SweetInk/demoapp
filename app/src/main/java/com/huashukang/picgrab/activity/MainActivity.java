@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.huashukang.picgrab.R;
 
@@ -23,8 +24,13 @@ public class MainActivity extends AppCompatActivity {
         btnBedSeatManage = (Button) findViewById(R.id.btn_usermanage);
         btnUpload = (Button)findViewById(R.id.btn_upload);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("人像采集");
+
+        final TextView toolbarTitle = (TextView) findViewById(R.id.toolbar_title);
+        toolbarTitle.setText("人像采集");
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+
     }
     public void bedseatManage(View view){
       //  Toast.makeText(this,"bedseatManage",Toast.LENGTH_SHORT).show();

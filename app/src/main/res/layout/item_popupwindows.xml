@@ -11,14 +11,14 @@
         android:id="@+id/ll_popup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FFFFFDFD"
+        android:background="#FFFF"
         android:orientation="vertical" >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#ffffff"
-            />
+            android:background="#ffff"
+            android:autoText="false" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,6 +57,8 @@
                 android:textSize="18sp"
                 android:text="选择上传" />
         </LinearLayout>
+
+
 
         <TextView
             android:layout_width="match_parent"

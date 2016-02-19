@@ -8,7 +8,7 @@
         android:id="@+id/item_upload"
         android:title="上传"
         android:orderInCategory="80"
-        android:icon="@mipmap/icon_upload"
+        android:icon="@mipmap/icon_main_upload"
         app:showAsAction="always|withText"
         ></item>
 </menu>
