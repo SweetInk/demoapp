@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="设置"
+    >
+    <PreferenceCategory
+        android:title="服务器配置"
+        >
+        <EditTextPreference
+            android:key="server_url"
+            android:title="服务器地址"
+            android:defaultValue=""
+            android:summary="http://localhost"
+            android:dialogTitle="请输入服务器地址"
+            ></EditTextPreference>
+   <!--     <EditTextPreference
+            android:key="server_port"
+            android:title="服务器端口"
+            android:defaultValue=""
+            android:summary="8080"
+            android:dialogTitle="请输入服务器端口"
+            ></EditTextPreference>-->
+    </PreferenceCategory>
+<PreferenceCategory
+    android:title="系统说明"
+    >
+    <Preference android:title="检查更新"
+        android:key="checkUpdate"
+        />
+    <Preference android:title="使用说明"
+        android:key="about"
+        />
+</PreferenceCategory>
+</PreferenceScreen>

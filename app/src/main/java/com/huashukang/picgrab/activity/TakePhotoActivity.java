@@ -2,6 +2,7 @@ package com.huashukang.picgrab.activity;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -106,31 +107,40 @@ public class TakePhotoActivity extends AppCompatActivity implements HttpUtils.Ca
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.item_upload:
-                        if (!task.containsKey(imageUri.getPath())) {
-                            Toast.makeText(TakePhotoActivity.this, "正在上传，请稍后...", Toast.LENGTH_SHORT).show();
-                            Thread thread = new Thread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    File file = new File(imageUri.getPath());
-                                    if (file.exists()) {
-                                        Log.i("PARENT", file.getParent());
+                        SharedPreferences sp = getSharedPreferences("config",MODE_PRIVATE);
+                        if(sp.getString("server_url","").equals("")){
+                            Toast.makeText(TakePhotoActivity.this,"未配置服务器地址",Toast.LENGTH_SHORT).show();
+                            return false;
+                        }else {
+                            httpUtils.url = sp.getString("server_url","");
+                            Log.i(TAG,"URL:"+httpUtils.url);
 
-                                        //上传
-                                        httpUtils.upload(file, TakePhotoActivity.this);
+                            if (!task.containsKey(imageUri.getPath())) {
+                                Toast.makeText(TakePhotoActivity.this, "正在上传，请稍后...", Toast.LENGTH_SHORT).show();
+                                Thread thread = new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        File file = new File(imageUri.getPath());
+                                        if (file.exists()) {
+                                            Log.i("PARENT", file.getParent());
 
-                                    } else {
-                                        Log.i("nopic", "No Picture");
+                                            //上传
+                                            httpUtils.upload(file, TakePhotoActivity.this);
+
+                                        } else {
+                                            Log.i("nopic", "No Picture");
+                                        }
                                     }
-                                }
 
-                                // HttpUtils.upload();
+                                    // HttpUtils.upload();
 
-                            });
-                            task.put(imageUri.getPath(), thread);
+                                });
+                                task.put(imageUri.getPath(), thread);
 
-                            thread.start();
-                        } else {
-                            Toast.makeText(TakePhotoActivity.this, "上传任务进行中", Toast.LENGTH_SHORT).show();
+                                thread.start();
+                            } else {
+                                Toast.makeText(TakePhotoActivity.this, "上传任务进行中", Toast.LENGTH_SHORT).show();
+                            }
                         }
                         break;
                 }

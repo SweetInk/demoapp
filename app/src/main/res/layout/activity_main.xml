@@ -31,6 +31,14 @@
             android:id="@+id/btn_usermanage"
             android:layout_gravity="center_horizontal" />
 
+        Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Button"
+            android:id="@+id/button2"
+            android:onClick="test"
+            android:layout_gravity="right" />
+
         <Button
             android:layout_width="126dp"
             android:layout_height="wrap_content"
@@ -51,7 +59,7 @@
             android:text="图片上传"
             android:background="@color/cardview_light_background"
             android:padding="5dp"
-            android:drawableTop="@mipmap/iconfont_shangchuan"
+            android:drawableTop="@mipmap/iconfont_upload"
             android:id="@+id/btn_upload"
             android:onClick="imgUpload"
             android:layout_alignBottom="@+id/btn_usermanage"

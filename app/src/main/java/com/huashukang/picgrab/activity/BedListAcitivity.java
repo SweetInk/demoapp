@@ -4,6 +4,7 @@ package com.huashukang.picgrab.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -19,7 +20,7 @@ import com.huashukang.picgrab.adapter.BedAdapter;
 import com.huashukang.picgrab.db.DBOperator;
 import com.huashukang.picgrab.pojo.UserEnity;
 import com.huashukang.picgrab.widget.DividerGridItemDecoration;
-import com.huashukang.picgrab.widget.MyLayoutManager;
+//import com.huashukang.picgrab.widget.MyLayoutManager;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ public class BedListAcitivity extends AppCompatActivity {
     private void Init() {
 
         pop = new PopupWindow(BedListAcitivity.this);
-        pop.setAnimationStyle(R.style.anim_popup_dir);
+      //  pop.setAnimationStyle(R.style.anim_popup_dir);
         View view = getLayoutInflater().inflate(R.layout.item_popupwindows, null);
         props = (LinearLayout) findViewById(R.id.ll_popup);
         pop.setWidth(LinearLayout.LayoutParams.MATCH_PARENT);
@@ -93,7 +94,7 @@ public class BedListAcitivity extends AppCompatActivity {
         toolbar.setTitle("照片采集");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.iconfont_fanhui);
+      //  getSupportActionBar().setHomeAsUpIndicator(R.mipmap.);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.bed_list_id);
         infoList= DBOperator.getInstance().open(this).getAllUser();
@@ -101,7 +102,8 @@ public class BedListAcitivity extends AppCompatActivity {
         Init();
         intent = new Intent(BedListAcitivity.this,TakePhotoActivity.class);
         mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new MyLayoutManager(this,4));
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this,4));
+      //  Grid
         mRecyclerView.addItemDecoration(new DividerGridItemDecoration(this));
         mRecyclerView.setAdapter(mAdapter=new BedAdapter(this,infoList));
 

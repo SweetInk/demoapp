@@ -21,6 +21,9 @@ import java.util.UUID;
 public class HttpUtils {
     private Context context;
     private CallBack callBack;
+    public String url="";
+
+    private String port;
     private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -35,7 +38,7 @@ public class HttpUtils {
             }
         }
     };
-    private static final String URL="http://192.168.2.22:8080/MyFileServer/ImgUpload";
+    //private static final String URL="http://192.168.2.22:8080/MyFileServer/ImgUpload";
     public  void upload(File file,CallBack callBack){
         this.callBack = callBack;
         String result = null;
@@ -43,7 +46,7 @@ public class HttpUtils {
         String PREFIX = "--", LINE_END = "\r\n";
         String CONTENT_TYPE = "multipart/form-data"; // 内容类型
         try {
-            URL url = new URL(URL);
+            URL url = new URL(this.url);
             try {
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setConnectTimeout(3000);

@@ -1,6 +1,7 @@
 package com.huashukang.picgrab.activity;
 
 import android.app.ProgressDialog;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -40,6 +41,7 @@ import java.util.Map;
 
 public class ChoosePhoto extends AppCompatActivity implements ListImageDirPopupWindow.OnImageDirSelected,HttpUtils.CallBack
 {
+	private static String TAG="ChoosePhoto";
 	private Map<String, Thread> task = new HashMap<>();
 	private ProgressDialog mProgressDialog;
 	private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
@@ -161,25 +163,33 @@ public class ChoosePhoto extends AppCompatActivity implements ListImageDirPopupW
 					case R.id.item_upload:
 						if (MyAdapter.mSelectedImage.size() <= 0) {
 							Toast.makeText(ChoosePhoto.this,"没有选择图片",Toast.LENGTH_SHORT).show();
-						}else{
-							Toast.makeText(ChoosePhoto.this,"上传中...",Toast.LENGTH_SHORT).show();
-							for (final String filePath : MyAdapter.mSelectedImage) {
-								if (!task.containsKey(filePath)) {
-									Thread thread = new Thread(new Runnable() {
-										@Override
-										public void run() {
-											httpUtils.upload(new File(filePath), ChoosePhoto.this);
-										}
-									});
-									task.put(filePath, thread);
-									thread.start();
-								} else {
-									continue;
-								}
+						}else {
+							SharedPreferences sp = getSharedPreferences("config", MODE_PRIVATE);
+							if (sp.getString("server_url", "").equals("")) {
+								Toast.makeText(ChoosePhoto.this, "未配置服务器地址", Toast.LENGTH_SHORT).show();
+								return false;
+							} else {
+								httpUtils.url = sp.getString("server_url","");
+								Log.i(TAG,"URL:"+httpUtils.url);
 
+								Toast.makeText(ChoosePhoto.this, "上传中...", Toast.LENGTH_SHORT).show();
+								for (final String filePath : MyAdapter.mSelectedImage) {
+									if (!task.containsKey(filePath)) {
+										Thread thread = new Thread(new Runnable() {
+											@Override
+											public void run() {
+												httpUtils.upload(new File(filePath), ChoosePhoto.this);
+											}
+										});
+										task.put(filePath, thread);
+										thread.start();
+									} else {
+										continue;
+									}
+
+								}
 							}
 						}
-
 
 
 						break;

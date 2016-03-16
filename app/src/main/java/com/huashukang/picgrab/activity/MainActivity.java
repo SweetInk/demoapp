@@ -1,12 +1,16 @@
 package com.huashukang.picgrab.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.huashukang.picgrab.R;
 
@@ -28,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
         final TextView toolbarTitle = (TextView) findViewById(R.id.toolbar_title);
         toolbarTitle.setText("人像采集");
         setSupportActionBar(toolbar);
+        SharedPreferences sp =this.getSharedPreferences("config",MODE_PRIVATE);
+    //    Toast.makeText(this,sp.)
+        Toast.makeText(this,sp.getString("server_url",""),Toast.LENGTH_SHORT).show();
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
@@ -48,4 +55,23 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent2);
 
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.setting:
+                Intent intent = new Intent(this, SettingActivity.class);
+                startActivity(intent);
+                break;
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        return true;
+    }
+
 }
